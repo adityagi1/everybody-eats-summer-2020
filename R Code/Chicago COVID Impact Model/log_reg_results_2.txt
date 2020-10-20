@@ -1,0 +1,237 @@
+
+Call:
+glm(formula = food_insec ~ SOC1 + ECON3 + ECON4A + ECON4B + ECON6B + 
+    ECON6E + PHYS9A + PHYS9B + PHYS9D + PHYS9H + RACETH + HHINCOME + 
+    EDUCATION, family = "binomial", data = cis)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-2.11512  -0.42704  -0.22356  -0.09363   2.63241  
+
+Coefficients: (1 not defined because of singularities)
+                                                                                  Estimate
+(Intercept)                                                                        0.65355
+SOC1(2) Most                                                                       0.52448
+SOC1(3) Some                                                                       0.40440
+SOC1(4) None                                                                       0.65474
+ECON3                                                                              0.03172
+ECON4A(2) Very likely                                                              0.19821
+ECON4A(3) Moderately likely                                                        1.71468
+ECON4A(4) Not too likely                                                           2.18764
+ECON4A(5) Not likely at all                                                        1.37202
+ECON4B(2) Very likely                                                              0.45581
+ECON4B(3) Moderately likely                                                        0.78285
+ECON4B(4) Not too likely                                                          -1.34577
+ECON4B(5) Not likely at all                                                       -0.87665
+ECON6B(2) Applied for                                                             -0.01173
+ECON6B(3) Tried to apply for                                                       2.23194
+ECON6B(4) Did not receive nor apply for any                                       -0.12470
+ECON6B(99) REFUSED                                                               -15.80834
+ECON6E(2) Applied for                                                              9.43507
+ECON6E(3) Tried to apply for                                                      -0.91251
+ECON6E(4) Did not receive nor apply for any                                       -1.13551
+ECON6E(99) REFUSED                                                                      NA
+PHYS9A(2) No                                                                      -1.14351
+PHYS9B(2) No                                                                      -0.28762
+PHYS9D(2) No                                                                      -1.41799
+PHYS9H(2) No                                                                      -0.53445
+RACETH(2) Black, non-Hispanic                                                      2.28426
+RACETH(3) Hispanic                                                                 0.94067
+RACETH(4) Other, non-Hispanic                                                      1.78808
+HHINCOME$100,000 to under $150,000                                                -2.83492
+HHINCOME$150,000 or more                                                          -1.98821
+HHINCOME$20,000 to under $30,000                                                   0.69185
+HHINCOME$30,000 to under $40,000                                                  -1.75490
+HHINCOME$40,000 to under $50,000                                                   0.96599
+HHINCOME$50,000 to under $75,000                                                  -1.68823
+HHINCOME$75,000 to under $100,000                                                 -1.72980
+HHINCOMEUnder $10,000                                                              0.62128
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)    0.11820
+EDUCATION(3) Some college, no degree                                              -0.18692
+EDUCATION(4) Associate degree                                                     -0.48204
+EDUCATION(5) Bachelors degree                                                     -0.60677
+EDUCATION(6) Masters degree                                                       -1.06604
+EDUCATION(7) Professional or Doctorate degree                                     -0.44768
+                                                                                Std. Error
+(Intercept)                                                                        1.65175
+SOC1(2) Most                                                                       0.68708
+SOC1(3) Some                                                                       0.68766
+SOC1(4) None                                                                       0.86821
+ECON3                                                                              0.01194
+ECON4A(2) Very likely                                                              0.76938
+ECON4A(3) Moderately likely                                                        0.80459
+ECON4A(4) Not too likely                                                           0.85663
+ECON4A(5) Not likely at all                                                        0.94619
+ECON4B(2) Very likely                                                              0.67635
+ECON4B(3) Moderately likely                                                        0.77857
+ECON4B(4) Not too likely                                                           0.96137
+ECON4B(5) Not likely at all                                                        0.96323
+ECON6B(2) Applied for                                                              1.27305
+ECON6B(3) Tried to apply for                                                       1.56419
+ECON6B(4) Did not receive nor apply for any                                        0.84752
+ECON6B(99) REFUSED                                                              1455.39812
+ECON6E(2) Applied for                                                           1455.39897
+ECON6E(3) Tried to apply for                                                       4.60797
+ECON6E(4) Did not receive nor apply for any                                        0.86002
+ECON6E(99) REFUSED                                                                      NA
+PHYS9A(2) No                                                                       0.47670
+PHYS9B(2) No                                                                       0.58727
+PHYS9D(2) No                                                                       0.61200
+PHYS9H(2) No                                                                       0.40626
+RACETH(2) Black, non-Hispanic                                                      0.54604
+RACETH(3) Hispanic                                                                 0.52306
+RACETH(4) Other, non-Hispanic                                                      0.58084
+HHINCOME$100,000 to under $150,000                                                 1.00887
+HHINCOME$150,000 or more                                                           0.91524
+HHINCOME$20,000 to under $30,000                                                   0.85850
+HHINCOME$30,000 to under $40,000                                                   0.90644
+HHINCOME$40,000 to under $50,000                                                   0.86821
+HHINCOME$50,000 to under $75,000                                                   0.80820
+HHINCOME$75,000 to under $100,000                                                  0.86711
+HHINCOMEUnder $10,000                                                              1.03343
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)    0.95920
+EDUCATION(3) Some college, no degree                                               0.86577
+EDUCATION(4) Associate degree                                                      0.93455
+EDUCATION(5) Bachelors degree                                                      0.87523
+EDUCATION(6) Masters degree                                                        0.94065
+EDUCATION(7) Professional or Doctorate degree                                      1.18568
+                                                                                z value
+(Intercept)                                                                       0.396
+SOC1(2) Most                                                                      0.763
+SOC1(3) Some                                                                      0.588
+SOC1(4) None                                                                      0.754
+ECON3                                                                             2.656
+ECON4A(2) Very likely                                                             0.258
+ECON4A(3) Moderately likely                                                       2.131
+ECON4A(4) Not too likely                                                          2.554
+ECON4A(5) Not likely at all                                                       1.450
+ECON4B(2) Very likely                                                             0.674
+ECON4B(3) Moderately likely                                                       1.005
+ECON4B(4) Not too likely                                                         -1.400
+ECON4B(5) Not likely at all                                                      -0.910
+ECON6B(2) Applied for                                                            -0.009
+ECON6B(3) Tried to apply for                                                      1.427
+ECON6B(4) Did not receive nor apply for any                                      -0.147
+ECON6B(99) REFUSED                                                               -0.011
+ECON6E(2) Applied for                                                             0.006
+ECON6E(3) Tried to apply for                                                     -0.198
+ECON6E(4) Did not receive nor apply for any                                      -1.320
+ECON6E(99) REFUSED                                                                   NA
+PHYS9A(2) No                                                                     -2.399
+PHYS9B(2) No                                                                     -0.490
+PHYS9D(2) No                                                                     -2.317
+PHYS9H(2) No                                                                     -1.316
+RACETH(2) Black, non-Hispanic                                                     4.183
+RACETH(3) Hispanic                                                                1.798
+RACETH(4) Other, non-Hispanic                                                     3.078
+HHINCOME$100,000 to under $150,000                                               -2.810
+HHINCOME$150,000 or more                                                         -2.172
+HHINCOME$20,000 to under $30,000                                                  0.806
+HHINCOME$30,000 to under $40,000                                                 -1.936
+HHINCOME$40,000 to under $50,000                                                  1.113
+HHINCOME$50,000 to under $75,000                                                 -2.089
+HHINCOME$75,000 to under $100,000                                                -1.995
+HHINCOMEUnder $10,000                                                             0.601
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)   0.123
+EDUCATION(3) Some college, no degree                                             -0.216
+EDUCATION(4) Associate degree                                                    -0.516
+EDUCATION(5) Bachelors degree                                                    -0.693
+EDUCATION(6) Masters degree                                                      -1.133
+EDUCATION(7) Professional or Doctorate degree                                    -0.378
+                                                                                Pr(>|z|)
+(Intercept)                                                                      0.69234
+SOC1(2) Most                                                                     0.44526
+SOC1(3) Some                                                                     0.55648
+SOC1(4) None                                                                     0.45077
+ECON3                                                                            0.00791
+ECON4A(2) Very likely                                                            0.79670
+ECON4A(3) Moderately likely                                                      0.03308
+ECON4A(4) Not too likely                                                         0.01066
+ECON4A(5) Not likely at all                                                      0.14705
+ECON4B(2) Very likely                                                            0.50036
+ECON4B(3) Moderately likely                                                      0.31466
+ECON4B(4) Not too likely                                                         0.16156
+ECON4B(5) Not likely at all                                                      0.36276
+ECON6B(2) Applied for                                                            0.99265
+ECON6B(3) Tried to apply for                                                     0.15361
+ECON6B(4) Did not receive nor apply for any                                      0.88303
+ECON6B(99) REFUSED                                                               0.99133
+ECON6E(2) Applied for                                                            0.99483
+ECON6E(3) Tried to apply for                                                     0.84302
+ECON6E(4) Did not receive nor apply for any                                      0.18672
+ECON6E(99) REFUSED                                                                    NA
+PHYS9A(2) No                                                                     0.01645
+PHYS9B(2) No                                                                     0.62431
+PHYS9D(2) No                                                                     0.02051
+PHYS9H(2) No                                                                     0.18833
+RACETH(2) Black, non-Hispanic                                                   2.87e-05
+RACETH(3) Hispanic                                                               0.07211
+RACETH(4) Other, non-Hispanic                                                    0.00208
+HHINCOME$100,000 to under $150,000                                               0.00495
+HHINCOME$150,000 or more                                                         0.02983
+HHINCOME$20,000 to under $30,000                                                 0.42031
+HHINCOME$30,000 to under $40,000                                                 0.05286
+HHINCOME$40,000 to under $50,000                                                 0.26587
+HHINCOME$50,000 to under $75,000                                                 0.03672
+HHINCOME$75,000 to under $100,000                                                0.04605
+HHINCOMEUnder $10,000                                                            0.54772
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)  0.90193
+EDUCATION(3) Some college, no degree                                             0.82907
+EDUCATION(4) Associate degree                                                    0.60599
+EDUCATION(5) Bachelors degree                                                    0.48814
+EDUCATION(6) Masters degree                                                      0.25709
+EDUCATION(7) Professional or Doctorate degree                                    0.70575
+                                                                                   
+(Intercept)                                                                        
+SOC1(2) Most                                                                       
+SOC1(3) Some                                                                       
+SOC1(4) None                                                                       
+ECON3                                                                           ** 
+ECON4A(2) Very likely                                                              
+ECON4A(3) Moderately likely                                                     *  
+ECON4A(4) Not too likely                                                        *  
+ECON4A(5) Not likely at all                                                        
+ECON4B(2) Very likely                                                              
+ECON4B(3) Moderately likely                                                        
+ECON4B(4) Not too likely                                                           
+ECON4B(5) Not likely at all                                                        
+ECON6B(2) Applied for                                                              
+ECON6B(3) Tried to apply for                                                       
+ECON6B(4) Did not receive nor apply for any                                        
+ECON6B(99) REFUSED                                                                 
+ECON6E(2) Applied for                                                              
+ECON6E(3) Tried to apply for                                                       
+ECON6E(4) Did not receive nor apply for any                                        
+ECON6E(99) REFUSED                                                                 
+PHYS9A(2) No                                                                    *  
+PHYS9B(2) No                                                                       
+PHYS9D(2) No                                                                    *  
+PHYS9H(2) No                                                                       
+RACETH(2) Black, non-Hispanic                                                   ***
+RACETH(3) Hispanic                                                              .  
+RACETH(4) Other, non-Hispanic                                                   ** 
+HHINCOME$100,000 to under $150,000                                              ** 
+HHINCOME$150,000 or more                                                        *  
+HHINCOME$20,000 to under $30,000                                                   
+HHINCOME$30,000 to under $40,000                                                .  
+HHINCOME$40,000 to under $50,000                                                   
+HHINCOME$50,000 to under $75,000                                                *  
+HHINCOME$75,000 to under $100,000                                               *  
+HHINCOMEUnder $10,000                                                              
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)    
+EDUCATION(3) Some college, no degree                                               
+EDUCATION(4) Associate degree                                                      
+EDUCATION(5) Bachelors degree                                                      
+EDUCATION(6) Masters degree                                                        
+EDUCATION(7) Professional or Doctorate degree                                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 425.18  on 430  degrees of freedom
+Residual deviance: 248.71  on 390  degrees of freedom
+AIC: 330.71
+
+Number of Fisher Scoring iterations: 14
+

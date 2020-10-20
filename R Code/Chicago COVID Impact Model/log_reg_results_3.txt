@@ -1,0 +1,41 @@
+
+Call:
+glm(formula = food_insec ~ ECON3 + ECON4A + PHYS9A + PHYS9D + 
+    RACETH + HHINCOME, family = "binomial", data = cis)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9856  -0.4906  -0.2582  -0.1414   2.6664  
+
+Coefficients:
+                                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                        -1.229563   0.848452  -1.449 0.147286    
+ECON3                               0.035400   0.009987   3.545 0.000393 ***
+ECON4A(2) Very likely               0.379666   0.569011   0.667 0.504619    
+ECON4A(3) Moderately likely         1.949212   0.523037   3.727 0.000194 ***
+ECON4A(4) Not too likely            2.157566   0.546937   3.945 7.99e-05 ***
+ECON4A(5) Not likely at all         0.821545   0.548034   1.499 0.133854    
+PHYS9A(2) No                       -0.734955   0.429413  -1.712 0.086983 .  
+PHYS9D(2) No                       -1.440227   0.499398  -2.884 0.003928 ** 
+RACETH(2) Black, non-Hispanic       2.069455   0.484556   4.271 1.95e-05 ***
+RACETH(3) Hispanic                  1.203432   0.441384   2.726 0.006401 ** 
+RACETH(4) Other, non-Hispanic       1.271965   0.518688   2.452 0.014196 *  
+HHINCOME$100,000 to under $150,000 -2.752090   0.873829  -3.149 0.001636 ** 
+HHINCOME$150,000 or more           -2.130366   0.802517  -2.655 0.007940 ** 
+HHINCOME$20,000 to under $30,000    0.616270   0.773267   0.797 0.425469    
+HHINCOME$30,000 to under $40,000   -1.502548   0.789459  -1.903 0.057006 .  
+HHINCOME$40,000 to under $50,000    0.690827   0.782756   0.883 0.377475    
+HHINCOME$50,000 to under $75,000   -1.657796   0.731701  -2.266 0.023471 *  
+HHINCOME$75,000 to under $100,000  -1.804805   0.764206  -2.362 0.018193 *  
+HHINCOMEUnder $10,000               0.493734   0.879217   0.562 0.574415    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 425.18  on 430  degrees of freedom
+Residual deviance: 273.15  on 412  degrees of freedom
+AIC: 311.15
+
+Number of Fisher Scoring iterations: 6
+

@@ -1,0 +1,244 @@
+---
+title: "COVID-19 Impact Model Development"
+author: "Adi Tyagi"
+date: "9/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Import libraries
+```{r}
+library(tidyverse)
+library(car)
+```
+
+# Load and clean data
+```{r}
+datapath = "../../Data/COVID Impact Survey/cis_proc_data/cis_week1_proc.csv"
+cis = read_csv(datapath)
+#drop the index read in
+cis = cis %>% select(-X1)
+#convert food insecurity to numeric from boolean
+cis$food_insec = as.numeric(cis$food_insec)
+#drop ECON5A_A, ECON5B_B since they were used to construct the dep var
+cis = cis %>% select(-ECON5A_A, -ECON5A_B)
+head(cis)
+```
+
+# Model Development
+To view the actual model summaries, see the attached .txt files.
+They are not included here because of the size of the results. 
+
+## Hand Built models
+I now build three hand-built models. I do this by removing non-significant variables, while recording the AIC, and Deviance. Between the AIC and Deviance, I prefer the Deviance. This is because the purpose of the model is not predictive (a la AIC), but rather inferential. The deviance does a great job of measuring model goodness of fit.
+
+A quick note: LOWER deviances are indicative of better fit, and LOWER AICs are associate with better models (better validation set performance/generalizability)
+
+ 
+
+### Model 1
+```{r}
+log.mod1 = glm(food_insec ~ ., 
+               data = cis %>% select(-SU_ID), 
+               family = 'binomial')
+#summary(log.mod1) 
+```
+
+
+Key model metrics: 
+
+- AIC: 365.27, 
+- Null Dev: 425.18, 
+- Res. Dev: 153.27
+
+
+The following variables are significant from the entire model:
+
+- SOC1 relative to (1) All
+  (2) MOST: 2.592
+- ECON3:  4.192e-02
+- ECON4A relative to (1) Extremely likely
+  (3) Moderately likely:  2.189
+  (4) Not too likely:  3.756
+- ECON4B: relative to (1) Extremely likely
+  (4) Not too likely:  -2.687
+- ECON6B: relative to (1) Received
+  (4) Did not receive nor apply for any: 2.798
+- ECON6E: relative to (1) Received
+  (4) Did not receive nor apply for any: -4.091
+- PHYS9A: relative to (1) Yes
+  (2) No: -1.550
+- PHYS9B: relative to (1) Yes
+  (2) No: -2.359
+- PHYS9D: relative to (1) Yes
+  (2) No: -3.524
+- PHYS9H: relative to (1) Yes
+  (2) No: -1.794
+- RACETH: relative to (1) White, non-Hispanic
+  (2) Black, non-Hispanic: 1.655
+  (4) Other, non-Hispanic: 2.148
+- HHINCOME: relative to USD10,000 to under $20,000 
+  USD 100,000 to under USD150,000: -5.770
+  USD 150,000 or more: -4.333
+  USD 30,000 to under USD40,000: -3.812
+  USD 50,000 to under USD75,000: -3.869
+  USD 75,000 to under USD100,000: -3.912
+- EDUCATION: relative to "(1) No HS diploma"
+  (6) Masters degree: -2.488
+  
+### Model 3
+
+Let's build a model with the above significant vars. For the remaining two models, only key model metrics are provided.
+
+```{r}
+log.mod2 = glm(food_insec ~ SOC1 + ECON3 + ECON4A + ECON4B + ECON6B + ECON6E + PHYS9A 
+    + PHYS9B + PHYS9D + PHYS9H + RACETH + HHINCOME + EDUCATION, data = cis,
+    family = 'binomial') 
+#summary(lod.mod2) 
+```
+
+The key metrics are:
+
+- AIC: 330.71 
+- Null Dev. 425.18
+- Residual Dev: 248.71
+
+the residual deviance has increased from 153.2721 to 248.7105 but the AIC has decreased from 365.271 to 330.7105
+
+### Model 3
+Now we drop SOC1, ECON4B, ECON6B, ECON6E, PHYS9B, PHYS9H, EDUCATION
+
+```{r}
+log.mod3 = glm(food_insec ~ ECON3 + ECON4A + PHYS9A 
+                + PHYS9D + RACETH + HHINCOME, data = cis, family = 'binomial')
+summary(log.mod3)
+``` 
+
+The key results:
+
+- AIC: 311.15 
+- Null Dev: 425.18 
+- Res. Dev. 271.15
+
+the residual deviance has further increased from 248.7105 to 271.15 but the AIC has decreased from 330.7105 to 311.15
+
+## Algorithmic feature selection
+
+I now use feature selection algorithms to build the model. 
+
+### Forward Selection
+
+The scope includes all variables. 
+```{r}
+fs.mod1 = glm(food_insec ~ 1, data = cis %>% select(-SU_ID), 
+          family = "binomial")
+
+#step(fs.mod1, scope = ~ SOC1+ SOC2A + SOC3A + SOC4A + PHYS8 + 
+#       ECON1 + ECON3 + ECON4A + ECON4B + ECON6A + ECON6B + ECON6C + 
+#       ECON6D + ECON6E + ECON6F + ECON6G + ECON6H + ECON6I + ECON6J + 
+#       ECON6K   +  ECON6L + PHYS9A + PHYS9B + PHYS9C + PHYS9D + PHYS9E  + 
+#       PHYS9F + PHYS9G + PHYS9H + PHYS5 + PHYS6   + AGE7 + GENDER + 
+#       RACETH + HHINCOME + EDUCATION + HHSIZE1 + HH01S + HH25S + 
+#       HH612S + HH1317S + HH18OVS + P_DENSE)
+
+```
+
+The final model as suggested by forward selection algorithm is:
+
+```{r}
+fs.mod = glm(food_insec ~ HHINCOME + AGE7 + RACETH + ECON4A + 
+      PHYS6 + ECON6K + PHYS9H + HH612S + SOC3A + ECON3 + PHYS9D, 
+    family = "binomial", data = cis %>% select(-SU_ID))
+
+summary(fs.mod)
+```
+
+this is superior to our best hand built model (mod3) because:
+
+- the aic decreased from 311.15 to 293.5 and 
+- the deviance decreased from 271.15 to 223.5
+
+### Backward Elimination
+
+Let's try a backward elimination algorithm 
+
+```{r}
+be.mod1 = glm(food_insec ~., data = cis %>% select(-SU_ID), 
+              family = "binomial")
+#step(be.mod1)
+```
+
+the final model as suggested by backward elimination is:
+
+```{r}
+be.mod = glm(food_insec ~ SOC3A + ECON3 + ECON4A + ECON4B + 
+      ECON6B + ECON6E + ECON6J + PHYS9A + PHYS9D + PHYS9H + PHYS5 + 
+      AGE7 + GENDER + RACETH + HHINCOME + HH612S, family = "binomial", 
+    data = cis %>% select(-SU_ID))
+summary(be.mod)
+```
+
+The key metrics are:
+
+- aic: 299.14
+- deviance: 205.14
+
+compared to the forward selection model:
+
+- the aic increased to 299.14 from 293.5 
+- the deviance decreased to 205.14 from 223.5002
+
+# Final Conclusions
+
+Let's summarize our findings so far.
+```{r}
+results = data.frame("models" = c("log.mod1", "log.mod2", "log.mod3", "fs.mod", "be.mod"),
+           "aic"= c(365.2721, 330.7105, 311.1549, 293.5002, 299.1369),
+           "deviance" = c(153.2721, 248.7105, 273.1549,223.5002, 205.1369))
+results
+```
+
+Which model has the lowest AICs?
+```{r}
+results %>% arrange(aic)
+```
+
+Which model has the lowest deviance?
+```{r}
+results %>% arrange(aic)
+```
+
+
+Let's use the backward elimination model as it is a good all-round model.
+
+- This is because it has the second lowest AIC and second lowest deviance as well! :)
+
+## Interpretation - Key Takeaways
+
+To be considered a risk factor, the following two must be the case:
+
+- the variable must be significant in the final model
+- the coeffecient must have a negative sign
+
+Here are some key takeaways from our final model in the form of food insecurity factors:
+
+- Those who communicate electronically with friends/family a few times a week have a lower risk of food insecurity as compared to those who communicate with friends/families everyday (lurking variable: unemployment)
+- More number of hours worked per week prior to COVID-19 start
+- Increased expectation of being employed 30 days from now (implicit: present unemployment)
+- Increased expectation of being employed 3 months from now (implicit: unemployment) 
+- Not applying/receiving Supplemental Social Security in the past 7 days
+- Not being covered by a health insurance from your employer/union
+- Not being covered by Medicaid, Medical Assistance/other form of govt. Assistance plans for low-incomes/disability
+- Not being covered by any health insurance plan at all
+- Being elderly (age bracket 65-74+)
+- Being Black (non-hispanic), Hispanic, an other Non Hispanic, 
+- Being Hispanic
+- An annual household income of between  $10,000 to $20,000 (i.e. low household income)
+- Having children in the household aged 6-12
+
+
+
+

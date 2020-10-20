@@ -1,0 +1,152 @@
+#################### BASIC LINEAR MODEL WITH ALL VARS #############################
+> summary(linear_model)
+
+Call:
+lm(formula = food_insecurity_num_2020 ~ ., data = data.mod)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-112.930  -20.498    4.566   29.102   89.210 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     1.819e+02  4.729e+01   3.846 0.000126 ***
+avg_household_size             -9.911e+00  4.198e+00  -2.361 0.018390 *  
+avg_travel_time_to_work        -1.149e+00  3.358e-01  -3.423 0.000639 ***
+computer_access                 1.050e-01  2.219e-01   0.473 0.636234    
+life_expectancy                 2.427e-01  4.602e-01   0.527 0.598017    
+median_age                      6.742e-01  2.915e-01   2.313 0.020880 *  
+median_home_loan_amount        -2.021e-05  2.759e-05  -0.733 0.463845    
+median_home_value               8.983e-06  2.197e-05   0.409 0.682643    
+median_household_income        -1.394e-04  9.613e-05  -1.450 0.147226    
+median_leverage_ratio           4.967e-01  3.176e+00   0.156 0.875770    
+num_jobs                       -1.173e-04  1.231e-04  -0.953 0.340977    
+num_housing_units              -4.095e-03  2.064e-03  -1.984 0.047456 *  
+proportion_bachelors_degree    -3.105e-01  2.245e-01  -1.384 0.166746    
+proportion_disabled            -3.324e-02  4.212e-01  -0.079 0.937114    
+proportion_hispanic             3.651e-01  9.464e-02   3.858 0.000120 ***
+prop_men                       -4.686e-01  3.051e-01  -1.536 0.124844    
+prop_nonwhite                  -1.731e-01  7.032e-02  -2.462 0.013957 *  
+prop_nonenglish_speaking        4.256e-02  1.979e-01   0.215 0.829721    
+prop_families_poverty           1.116e-01  1.781e-01   0.626 0.531109    
+prop_students_in_public_school  1.420e-01  8.836e-02   1.607 0.108381    
+social_vulnerability_index     -4.030e+01  1.119e+01  -3.602 0.000328 ***
+thiel_racial_segregation_index  1.821e+01  1.644e+01   1.108 0.268105    
+total_population               -1.166e-02  5.230e-03  -2.229 0.025962 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 41.97 on 1287 degrees of freedom
+  (9 observations deleted due to missingness)
+Multiple R-squared:  0.09845,	Adjusted R-squared:  0.08304 
+F-statistic: 6.388 on 22 and 1287 DF,  p-value: < 2.2e-16
+
+########################## LINEAR MODEL WITH SIGN'T VARIABLES ONLY#########################
+> summary(linear_model2)
+
+Call:
+lm(formula = food_insecurity_num_2020 ~ ., data = data.mod2)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-115.227  -21.640    4.961   29.853   88.184 
+
+Coefficients:
+                             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                153.885384  15.106622  10.187  < 2e-16 ***
+avg_household_size          -7.618549   3.172851  -2.401 0.016482 *  
+avg_travel_time_to_work     -1.131376   0.325319  -3.478 0.000522 ***
+median_age                   0.896061   0.196142   4.568 5.38e-06 ***
+num_housing_units           -0.004833   0.002006  -2.409 0.016123 *  
+proportion_hispanic          0.386441   0.069609   5.552 3.43e-08 ***
+prop_nonwhite               -0.079688   0.062911  -1.267 0.205503    
+social_vulnerability_index -15.066765   6.873001  -2.192 0.028544 *  
+total_population            -0.009290   0.005074  -1.831 0.067357 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 42.1 on 1301 degrees of freedom
+  (9 observations deleted due to missingness)
+Multiple R-squared:  0.08303,	Adjusted R-squared:  0.07739 
+F-statistic: 14.72 on 8 and 1301 DF,  p-value: < 2.2e-16
+
+############################ GLM WITH GAMMA DISTRIBUTION (INVERSE LINK)############
+> summary(linear_model3)
+
+Call:
+glm(formula = food_insecurity_rate_2020 ~ ., family = "Gamma", 
+    data = data.mod3)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.67503  -0.10781  -0.01789   0.09174   0.95201  
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     5.427e+00  7.775e-01   6.980 4.71e-12 ***
+avg_household_size              3.318e-01  7.188e-02   4.615 4.32e-06 ***
+avg_travel_time_to_work        -2.341e-02  6.367e-03  -3.676 0.000246 ***
+computer_access                 1.931e-03  3.278e-03   0.589 0.555840    
+life_expectancy                 3.715e-04  7.142e-03   0.052 0.958529    
+median_age                      2.800e-02  5.024e-03   5.573 3.04e-08 ***
+median_home_loan_amount         5.418e-07  5.241e-07   1.034 0.301482    
+median_home_value               4.402e-07  4.311e-07   1.021 0.307458    
+median_household_income         3.087e-05  2.272e-06  13.583  < 2e-16 ***
+median_leverage_ratio           5.879e-02  4.846e-02   1.213 0.225282    
+num_jobs                       -2.766e-06  2.943e-06  -0.940 0.347466    
+num_housing_units               1.201e-04  4.118e-05   2.917 0.003593 ** 
+proportion_bachelors_degree    -1.937e-02  4.568e-03  -4.240 2.40e-05 ***
+proportion_disabled            -9.498e-03  6.034e-03  -1.574 0.115740    
+proportion_hispanic             1.084e-02  1.798e-03   6.030 2.14e-09 ***
+prop_men                       -1.056e-02  4.524e-03  -2.335 0.019682 *  
+prop_nonwhite                  -1.840e-02  1.487e-03 -12.380  < 2e-16 ***
+prop_nonenglish_speaking        6.153e-03  3.806e-03   1.617 0.106219    
+prop_families_poverty          -9.264e-03  2.430e-03  -3.812 0.000144 ***
+prop_students_in_public_school  6.581e-03  2.052e-03   3.207 0.001373 ** 
+social_vulnerability_index     -3.074e+00  2.219e-01 -13.857  < 2e-16 ***
+thiel_racial_segregation_index -9.388e-01  2.678e-01  -3.506 0.000471 ***
+total_population               -2.394e-06  8.660e-05  -0.028 0.977952    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Gamma family taken to be 0.02382603)
+
+    Null deviance: 281.759  on 1309  degrees of freedom
+Residual deviance:  29.537  on 1287  degrees of freedom
+  (9 observations deleted due to missingness)
+AIC: -5879.3
+
+Number of Fisher Scoring iterations: 4
+
+################################ LIMITED MODELLING VARIABLES SUBSET #############################
+> summary(linear_model4)
+
+Call:
+lm(formula = food_insecurity_num_2020 ~ ., data = fa_pm %>% select(modelling_cols3))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-130.68  -15.22    7.84   28.74   83.17 
+
+Coefficients:
+                              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                  1.220e+02  3.406e+01   3.583 0.000352 ***
+food_insecurity_num_2018     2.029e-01  4.030e-02   5.036 5.42e-07 ***
+num_housing_units           -6.040e-03  1.451e-03  -4.163 3.35e-05 ***
+social_vulnerability_index  -4.014e+01  9.556e+00  -4.200 2.85e-05 ***
+median_household_income     -2.745e-04  8.079e-05  -3.398 0.000699 ***
+prop_nonwhite               -2.470e-01  6.034e-02  -4.093 4.52e-05 ***
+median_home_value            1.110e-05  2.164e-05   0.513 0.607996    
+median_home_loan_amount     -4.485e-06  2.592e-05  -0.173 0.862658    
+prop_families_poverty       -8.758e-02  1.615e-01  -0.542 0.587812    
+proportion_bachelors_degree -4.457e-01  1.790e-01  -2.490 0.012908 *  
+life_expectancy              5.596e-01  4.119e-01   1.358 0.174565    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 42.64 on 1308 degrees of freedom
+Multiple R-squared:  0.07415,	Adjusted R-squared:  0.06707 
+F-statistic: 10.48 on 10 and 1308 DF,  p-value: < 2.2e-16
+
+
+

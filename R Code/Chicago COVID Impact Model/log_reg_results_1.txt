@@ -1,0 +1,598 @@
+
+Call:
+glm(formula = food_insec ~ ., family = "binomial", data = cis %>% 
+    select(-SU_ID))
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.8738  -0.2284  -0.0389   0.0000   3.2668  
+
+Coefficients: (7 not defined because of singularities)
+                                                                                             Estimate
+(Intercept)                                                                                -1.010e+01
+SOC1(2) Most                                                                                2.592e+00
+SOC1(3) Some                                                                                1.932e+00
+SOC1(4) None                                                                                5.391e-01
+SOC2A(2) A few times a week                                                                -7.893e-01
+SOC2A(3) A few times a month                                                               -6.738e-01
+SOC2A(4) Once a month                                                                      -6.740e-01
+SOC2A(5) Not at all                                                                         9.091e-01
+SOC2A(77) Not sure                                                                         -1.399e+01
+SOC3A(2) A few times a week                                                                -1.079e+00
+SOC3A(3) A few times a month                                                               -1.847e+01
+SOC3A(4) Once a month                                                                       2.644e+00
+SOC3A(5) Not at all                                                                         8.732e+00
+SOC4A(2) No                                                                                -8.061e-01
+SOC4A(77) Not sure                                                                         -1.640e+01
+PHYS8(2) Very good                                                                          1.716e-01
+PHYS8(3) Good                                                                               9.580e-01
+PHYS8(4) Fair                                                                               1.269e+00
+PHYS8(5) Poor                                                                              -1.579e+01
+ECON1(2) Yes, I worked as self-employed in my own business, professional practice, or farm -5.366e-01
+ECON1(3) No, I did not work for pay last week.                                             -8.976e-01
+ECON3                                                                                       4.192e-02
+ECON4A(2) Very likely                                                                      -5.635e-01
+ECON4A(3) Moderately likely                                                                 2.189e+00
+ECON4A(4) Not too likely                                                                    3.756e+00
+ECON4A(5) Not likely at all                                                                 9.380e-02
+ECON4B(2) Very likely                                                                       1.111e+00
+ECON4B(3) Moderately likely                                                                 9.504e-01
+ECON4B(4) Not too likely                                                                   -2.687e+00
+ECON4B(5) Not likely at all                                                                 4.377e-01
+ECON6A(2) Applied for                                                                       9.466e-01
+ECON6A(3) Tried to apply for                                                                3.683e+00
+ECON6A(4) Did not receive nor apply for any                                                 9.708e-01
+ECON6A(99) REFUSED                                                                         -1.824e+01
+ECON6B(2) Applied for                                                                       1.216e+00
+ECON6B(3) Tried to apply for                                                                2.921e+01
+ECON6B(4) Did not receive nor apply for any                                                 2.798e+00
+ECON6B(99) REFUSED                                                                                 NA
+ECON6C(2) Applied for                                                                      -2.068e+01
+ECON6C(3) Tried to apply for                                                                3.308e+01
+ECON6C(4) Did not receive nor apply for any                                                -2.084e+01
+ECON6C(99) REFUSED                                                                                 NA
+ECON6D(2) Applied for                                                                      -1.611e+01
+ECON6D(3) Tried to apply for                                                               -6.823e+01
+ECON6D(4) Did not receive nor apply for any                                                 7.055e-01
+ECON6E(2) Applied for                                                                       3.454e+01
+ECON6E(3) Tried to apply for                                                               -5.888e+00
+ECON6E(4) Did not receive nor apply for any                                                -4.091e+00
+ECON6E(99) REFUSED                                                                                 NA
+ECON6F(2) Applied for                                                                      -1.443e+01
+ECON6F(3) Tried to apply for                                                                2.760e+01
+ECON6F(4) Did not receive nor apply for any                                                -1.072e+00
+ECON6G(2) Applied for                                                                      -2.122e+01
+ECON6G(3) Tried to apply for                                                               -1.304e+00
+ECON6G(4) Did not receive nor apply for any                                                -1.199e-01
+ECON6G(99) REFUSED                                                                                 NA
+ECON6H(2) Applied for                                                                      -2.305e+01
+ECON6H(3) Tried to apply for                                                                3.240e+01
+ECON6H(4) Did not receive nor apply for any                                                -2.333e+00
+ECON6H(99) REFUSED                                                                                 NA
+ECON6I(4) Did not receive nor apply for any                                                 2.549e+01
+ECON6J(2) Applied for                                                                              NA
+ECON6J(3) Tried to apply for                                                               -9.126e+01
+ECON6J(4) Did not receive nor apply for any                                                -1.209e+01
+ECON6K(2) Applied for                                                                       2.204e+01
+ECON6K(3) Tried to apply for                                                                2.669e+01
+ECON6K(4) Did not receive nor apply for any                                                -2.003e+00
+ECON6L(2) Applied for                                                                      -1.142e+01
+ECON6L(3) Tried to apply for                                                                1.865e+01
+ECON6L(4) Did not receive nor apply for any                                                -8.100e-01
+PHYS9A(2) No                                                                               -1.550e+00
+PHYS9B(2) No                                                                               -2.359e+00
+PHYS9C(2) No                                                                                1.516e+01
+PHYS9D(2) No                                                                               -3.524e+00
+PHYS9E(2) No                                                                                8.911e-01
+PHYS9F(2) No                                                                               -1.584e+00
+PHYS9G(2) No                                                                                       NA
+PHYS9H(2) No                                                                               -1.794e+00
+PHYS5(2) No                                                                                 1.547e+01
+PHYS5(77) Not sure                                                                         -8.221e-01
+PHYS6(2) No                                                                                -8.998e-01
+PHYS6(77) Not sure                                                                          2.153e+01
+AGE7(2) 25-34                                                                              -1.254e+00
+AGE7(3) 35-44                                                                              -7.834e-01
+AGE7(4) 45-54                                                                              -1.074e+00
+AGE7(5) 55-64                                                                              -6.410e-01
+AGE7(6) 65-74                                                                              -3.201e+00
+AGE7(7) 75+                                                                                -2.397e+01
+GENDER(2) Female                                                                           -4.178e-03
+RACETH(2) Black, non-Hispanic                                                               1.655e+00
+RACETH(3) Hispanic                                                                          1.308e+00
+RACETH(4) Other, non-Hispanic                                                               2.148e+00
+HHINCOME$100,000 to under $150,000                                                         -5.770e+00
+HHINCOME$150,000 or more                                                                   -4.333e+00
+HHINCOME$20,000 to under $30,000                                                            2.141e-01
+HHINCOME$30,000 to under $40,000                                                           -3.812e+00
+HHINCOME$40,000 to under $50,000                                                            3.269e-01
+HHINCOME$50,000 to under $75,000                                                           -3.869e+00
+HHINCOME$75,000 to under $100,000                                                          -3.912e+00
+HHINCOMEUnder $10,000                                                                      -1.322e+00
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)            -3.347e-01
+EDUCATION(3) Some college, no degree                                                       -1.547e+00
+EDUCATION(4) Associate degree                                                              -1.874e+00
+EDUCATION(5) Bachelors degree                                                              -1.521e+00
+EDUCATION(6) Masters degree                                                                -2.488e+00
+EDUCATION(7) Professional or Doctorate degree                                              -1.612e+00
+HHSIZE1                                                                                    -2.260e+00
+HH01S                                                                                       2.243e+00
+HH25S                                                                                       2.354e+00
+HH612S                                                                                      2.775e+00
+HH1317S                                                                                     2.084e+00
+HH18OVS                                                                                     2.419e+00
+P_DENSE(3) Urban                                                                            1.559e+00
+
+
+                                                                                           Std. Error
+(Intercept)                                                                                 3.830e+04
+SOC1(2) Most                                                                                1.315e+00
+SOC1(3) Some                                                                                1.218e+00
+SOC1(4) None                                                                                1.727e+00
+SOC2A(2) A few times a week                                                                 1.290e+00
+SOC2A(3) A few times a month                                                                1.295e+00
+SOC2A(4) Once a month                                                                       1.343e+00
+SOC2A(5) Not at all                                                                         1.458e+00
+SOC2A(77) Not sure                                                                          1.989e+04
+SOC3A(2) A few times a week                                                                 7.412e-01
+SOC3A(3) A few times a month                                                                3.465e+03
+SOC3A(4) Once a month                                                                       2.637e+00
+SOC3A(5) Not at all                                                                         1.784e+04
+SOC4A(2) No                                                                                 1.038e+00
+SOC4A(77) Not sure                                                                          1.773e+04
+PHYS8(2) Very good                                                                          8.272e-01
+PHYS8(3) Good                                                                               8.134e-01
+PHYS8(4) Fair                                                                               1.216e+00
+PHYS8(5) Poor                                                                               9.231e+03
+ECON1(2) Yes, I worked as self-employed in my own business, professional practice, or farm  1.093e+00
+ECON1(3) No, I did not work for pay last week.                                              9.710e-01
+ECON3                                                                                       2.433e-02
+ECON4A(2) Very likely                                                                       1.114e+00
+ECON4A(3) Moderately likely                                                                 1.131e+00
+ECON4A(4) Not too likely                                                                    1.391e+00
+ECON4A(5) Not likely at all                                                                 1.424e+00
+ECON4B(2) Very likely                                                                       9.490e-01
+ECON4B(3) Moderately likely                                                                 1.160e+00
+ECON4B(4) Not too likely                                                                    1.604e+00
+ECON4B(5) Not likely at all                                                                 1.518e+00
+ECON6A(2) Applied for                                                                       1.488e+00
+ECON6A(3) Tried to apply for                                                                2.328e+00
+ECON6A(4) Did not receive nor apply for any                                                 1.349e+00
+ECON6A(99) REFUSED                                                                          3.391e+04
+ECON6B(2) Applied for                                                                       3.707e+00
+ECON6B(3) Tried to apply for                                                                8.282e+03
+ECON6B(4) Did not receive nor apply for any                                                 1.672e+00
+ECON6B(99) REFUSED                                                                                 NA
+ECON6C(2) Applied for                                                                       1.119e+04
+ECON6C(3) Tried to apply for                                                                1.668e+04
+ECON6C(4) Did not receive nor apply for any                                                 1.119e+04
+ECON6C(99) REFUSED                                                                                 NA
+ECON6D(2) Applied for                                                                       1.773e+04
+ECON6D(3) Tried to apply for                                                                2.922e+04
+ECON6D(4) Did not receive nor apply for any                                                 1.749e+00
+ECON6E(2) Applied for                                                                       5.233e+04
+ECON6E(3) Tried to apply for                                                                3.749e+04
+ECON6E(4) Did not receive nor apply for any                                                 1.765e+00
+ECON6E(99) REFUSED                                                                                 NA
+ECON6F(2) Applied for                                                                       8.282e+03
+ECON6F(3) Tried to apply for                                                                1.115e+04
+ECON6F(4) Did not receive nor apply for any                                                 1.425e+00
+ECON6G(2) Applied for                                                                       3.979e+03
+ECON6G(3) Tried to apply for                                                                7.753e+00
+ECON6G(4) Did not receive nor apply for any                                                 8.492e-01
+ECON6G(99) REFUSED                                                                                 NA
+ECON6H(2) Applied for                                                                       1.773e+04
+ECON6H(3) Tried to apply for                                                                1.104e+04
+ECON6H(4) Did not receive nor apply for any                                                 1.793e+00
+ECON6H(99) REFUSED                                                                                 NA
+ECON6I(4) Did not receive nor apply for any                                                 3.042e+04
+ECON6J(2) Applied for                                                                              NA
+ECON6J(3) Tried to apply for                                                                2.862e+04
+ECON6J(4) Did not receive nor apply for any                                                 1.773e+04
+ECON6K(2) Applied for                                                                       1.773e+04
+ECON6K(3) Tried to apply for                                                                2.009e+04
+ECON6K(4) Did not receive nor apply for any                                                 1.700e+00
+ECON6L(2) Applied for                                                                       9.454e+03
+ECON6L(3) Tried to apply for                                                                7.641e+03
+ECON6L(4) Did not receive nor apply for any                                                 1.624e+00
+PHYS9A(2) No                                                                                8.289e-01
+PHYS9B(2) No                                                                                1.259e+00
+PHYS9C(2) No                                                                                4.529e+03
+PHYS9D(2) No                                                                                1.401e+00
+PHYS9E(2) No                                                                                1.454e+00
+PHYS9F(2) No                                                                                2.279e+00
+PHYS9G(2) No                                                                                       NA
+PHYS9H(2) No                                                                                6.557e-01
+PHYS5(2) No                                                                                 9.010e+03
+PHYS5(77) Not sure                                                                          3.308e+04
+PHYS6(2) No                                                                                 1.226e+00
+PHYS6(77) Not sure                                                                          8.144e+03
+AGE7(2) 25-34                                                                               1.417e+00
+AGE7(3) 35-44                                                                               1.450e+00
+AGE7(4) 45-54                                                                               1.445e+00
+AGE7(5) 55-64                                                                               1.380e+00
+AGE7(6) 65-74                                                                               2.012e+00
+AGE7(7) 75+                                                                                 1.938e+03
+GENDER(2) Female                                                                            5.996e-01
+RACETH(2) Black, non-Hispanic                                                               9.530e-01
+RACETH(3) Hispanic                                                                          9.225e-01
+RACETH(4) Other, non-Hispanic                                                               1.134e+00
+HHINCOME$100,000 to under $150,000                                                          2.090e+00
+HHINCOME$150,000 or more                                                                    1.781e+00
+HHINCOME$20,000 to under $30,000                                                            1.690e+00
+HHINCOME$30,000 to under $40,000                                                            1.775e+00
+HHINCOME$40,000 to under $50,000                                                            1.684e+00
+HHINCOME$50,000 to under $75,000                                                            1.652e+00
+HHINCOME$75,000 to under $100,000                                                           1.772e+00
+HHINCOMEUnder $10,000                                                                       1.956e+00
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)             1.699e+00
+EDUCATION(3) Some college, no degree                                                        1.398e+00
+EDUCATION(4) Associate degree                                                               1.572e+00
+EDUCATION(5) Bachelors degree                                                               1.409e+00
+EDUCATION(6) Masters degree                                                                 1.492e+00
+EDUCATION(7) Professional or Doctorate degree                                               2.013e+00
+HHSIZE1                                                                                     2.242e+00
+HH01S                                                                                       2.703e+00
+HH25S                                                                                       2.405e+00
+HH612S                                                                                      2.217e+00
+HH1317S                                                                                     2.022e+00
+HH18OVS                                                                                     2.195e+00
+P_DENSE(3) Urban                                                                            1.495e+00
+
+
+
+                                                                                           z value
+(Intercept)                                                                                  0.000
+SOC1(2) Most                                                                                 1.972
+SOC1(3) Some                                                                                 1.586
+SOC1(4) None                                                                                 0.312
+SOC2A(2) A few times a week                                                                 -0.612
+SOC2A(3) A few times a month                                                                -0.520
+SOC2A(4) Once a month                                                                       -0.502
+SOC2A(5) Not at all                                                                          0.623
+SOC2A(77) Not sure                                                                          -0.001
+SOC3A(2) A few times a week                                                                 -1.455
+SOC3A(3) A few times a month                                                                -0.005
+SOC3A(4) Once a month                                                                        1.002
+SOC3A(5) Not at all                                                                          0.000
+SOC4A(2) No                                                                                 -0.776
+SOC4A(77) Not sure                                                                          -0.001
+PHYS8(2) Very good                                                                           0.207
+PHYS8(3) Good                                                                                1.178
+PHYS8(4) Fair                                                                                1.044
+PHYS8(5) Poor                                                                               -0.002
+ECON1(2) Yes, I worked as self-employed in my own business, professional practice, or farm  -0.491
+ECON1(3) No, I did not work for pay last week.                                              -0.924
+ECON3                                                                                        1.722
+ECON4A(2) Very likely                                                                       -0.506
+ECON4A(3) Moderately likely                                                                  1.935
+ECON4A(4) Not too likely                                                                     2.700
+ECON4A(5) Not likely at all                                                                  0.066
+ECON4B(2) Very likely                                                                        1.171
+ECON4B(3) Moderately likely                                                                  0.819
+ECON4B(4) Not too likely                                                                    -1.676
+ECON4B(5) Not likely at all                                                                  0.288
+ECON6A(2) Applied for                                                                        0.636
+ECON6A(3) Tried to apply for                                                                 1.582
+ECON6A(4) Did not receive nor apply for any                                                  0.720
+ECON6A(99) REFUSED                                                                          -0.001
+ECON6B(2) Applied for                                                                        0.328
+ECON6B(3) Tried to apply for                                                                 0.004
+ECON6B(4) Did not receive nor apply for any                                                  1.674
+ECON6B(99) REFUSED                                                                              NA
+ECON6C(2) Applied for                                                                       -0.002
+ECON6C(3) Tried to apply for                                                                 0.002
+ECON6C(4) Did not receive nor apply for any                                                 -0.002
+ECON6C(99) REFUSED                                                                              NA
+ECON6D(2) Applied for                                                                       -0.001
+ECON6D(3) Tried to apply for                                                                -0.002
+ECON6D(4) Did not receive nor apply for any                                                  0.403
+ECON6E(2) Applied for                                                                        0.001
+ECON6E(3) Tried to apply for                                                                 0.000
+ECON6E(4) Did not receive nor apply for any                                                 -2.318
+ECON6E(99) REFUSED                                                                              NA
+ECON6F(2) Applied for                                                                       -0.002
+ECON6F(3) Tried to apply for                                                                 0.002
+ECON6F(4) Did not receive nor apply for any                                                 -0.753
+ECON6G(2) Applied for                                                                       -0.005
+ECON6G(3) Tried to apply for                                                                -0.168
+ECON6G(4) Did not receive nor apply for any                                                 -0.141
+ECON6G(99) REFUSED                                                                              NA
+ECON6H(2) Applied for                                                                       -0.001
+ECON6H(3) Tried to apply for                                                                 0.003
+ECON6H(4) Did not receive nor apply for any                                                 -1.301
+ECON6H(99) REFUSED                                                                              NA
+ECON6I(4) Did not receive nor apply for any                                                  0.001
+ECON6J(2) Applied for                                                                           NA
+ECON6J(3) Tried to apply for                                                                -0.003
+ECON6J(4) Did not receive nor apply for any                                                 -0.001
+ECON6K(2) Applied for                                                                        0.001
+ECON6K(3) Tried to apply for                                                                 0.001
+ECON6K(4) Did not receive nor apply for any                                                 -1.178
+ECON6L(2) Applied for                                                                       -0.001
+ECON6L(3) Tried to apply for                                                                 0.002
+ECON6L(4) Did not receive nor apply for any                                                 -0.499
+PHYS9A(2) No                                                                                -1.870
+PHYS9B(2) No                                                                                -1.874
+PHYS9C(2) No                                                                                 0.003
+PHYS9D(2) No                                                                                -2.514
+PHYS9E(2) No                                                                                 0.613
+PHYS9F(2) No                                                                                -0.695
+PHYS9G(2) No                                                                                    NA
+PHYS9H(2) No                                                                                -2.736
+PHYS5(2) No                                                                                  0.002
+PHYS5(77) Not sure                                                                           0.000
+PHYS6(2) No                                                                                 -0.734
+PHYS6(77) Not sure                                                                           0.003
+AGE7(2) 25-34                                                                               -0.885
+AGE7(3) 35-44                                                                               -0.540
+AGE7(4) 45-54                                                                               -0.743
+AGE7(5) 55-64                                                                               -0.465
+AGE7(6) 65-74                                                                               -1.591
+AGE7(7) 75+                                                                                 -0.012
+GENDER(2) Female                                                                            -0.007
+RACETH(2) Black, non-Hispanic                                                                1.736
+RACETH(3) Hispanic                                                                           1.418
+RACETH(4) Other, non-Hispanic                                                                1.894
+HHINCOME$100,000 to under $150,000                                                          -2.760
+HHINCOME$150,000 or more                                                                    -2.434
+HHINCOME$20,000 to under $30,000                                                             0.127
+HHINCOME$30,000 to under $40,000                                                            -2.148
+HHINCOME$40,000 to under $50,000                                                             0.194
+HHINCOME$50,000 to under $75,000                                                            -2.342
+HHINCOME$75,000 to under $100,000                                                           -2.208
+HHINCOMEUnder $10,000                                                                       -0.676
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)             -0.197
+EDUCATION(3) Some college, no degree                                                        -1.107
+EDUCATION(4) Associate degree                                                               -1.192
+EDUCATION(5) Bachelors degree                                                               -1.080
+EDUCATION(6) Masters degree                                                                 -1.668
+EDUCATION(7) Professional or Doctorate degree                                               -0.801
+HHSIZE1                                                                                     -1.008
+HH01S                                                                                        0.830
+HH25S                                                                                        0.979
+HH612S                                                                                       1.252
+HH1317S                                                                                      1.031
+HH18OVS                                                                                      1.102
+P_DENSE(3) Urban                                                                             1.043
+
+
+                                                                                           Pr(>|z|)
+(Intercept)                                                                                 0.99979
+SOC1(2) Most                                                                                0.04861
+SOC1(3) Some                                                                                0.11270
+SOC1(4) None                                                                                0.75493
+SOC2A(2) A few times a week                                                                 0.54061
+SOC2A(3) A few times a month                                                                0.60279
+SOC2A(4) Once a month                                                                       0.61585
+SOC2A(5) Not at all                                                                         0.53303
+SOC2A(77) Not sure                                                                          0.99944
+SOC3A(2) A few times a week                                                                 0.14558
+SOC3A(3) A few times a month                                                                0.99575
+SOC3A(4) Once a month                                                                       0.31614
+SOC3A(5) Not at all                                                                         0.99961
+SOC4A(2) No                                                                                 0.43757
+SOC4A(77) Not sure                                                                          0.99926
+PHYS8(2) Very good                                                                          0.83568
+PHYS8(3) Good                                                                               0.23888
+PHYS8(4) Fair                                                                               0.29668
+PHYS8(5) Poor                                                                               0.99864
+ECON1(2) Yes, I worked as self-employed in my own business, professional practice, or farm  0.62331
+ECON1(3) No, I did not work for pay last week.                                              0.35528
+ECON3                                                                                       0.08499
+ECON4A(2) Very likely                                                                       0.61297
+ECON4A(3) Moderately likely                                                                 0.05297
+ECON4A(4) Not too likely                                                                    0.00693
+ECON4A(5) Not likely at all                                                                 0.94749
+ECON4B(2) Very likely                                                                       0.24155
+ECON4B(3) Moderately likely                                                                 0.41270
+ECON4B(4) Not too likely                                                                    0.09384
+ECON4B(5) Not likely at all                                                                 0.77302
+ECON6A(2) Applied for                                                                       0.52468
+ECON6A(3) Tried to apply for                                                                0.11354
+ECON6A(4) Did not receive nor apply for any                                                 0.47176
+ECON6A(99) REFUSED                                                                          0.99957
+ECON6B(2) Applied for                                                                       0.74285
+ECON6B(3) Tried to apply for                                                                0.99719
+ECON6B(4) Did not receive nor apply for any                                                 0.09420
+ECON6B(99) REFUSED                                                                               NA
+ECON6C(2) Applied for                                                                       0.99853
+ECON6C(3) Tried to apply for                                                                0.99842
+ECON6C(4) Did not receive nor apply for any                                                 0.99851
+ECON6C(99) REFUSED                                                                               NA
+ECON6D(2) Applied for                                                                       0.99928
+ECON6D(3) Tried to apply for                                                                0.99814
+ECON6D(4) Did not receive nor apply for any                                                 0.68663
+ECON6E(2) Applied for                                                                       0.99947
+ECON6E(3) Tried to apply for                                                                0.99987
+ECON6E(4) Did not receive nor apply for any                                                 0.02048
+ECON6E(99) REFUSED                                                                               NA
+ECON6F(2) Applied for                                                                       0.99861
+ECON6F(3) Tried to apply for                                                                0.99802
+ECON6F(4) Did not receive nor apply for any                                                 0.45174
+ECON6G(2) Applied for                                                                       0.99575
+ECON6G(3) Tried to apply for                                                                0.86639
+ECON6G(4) Did not receive nor apply for any                                                 0.88776
+ECON6G(99) REFUSED                                                                               NA
+ECON6H(2) Applied for                                                                       0.99896
+ECON6H(3) Tried to apply for                                                                0.99766
+ECON6H(4) Did not receive nor apply for any                                                 0.19336
+ECON6H(99) REFUSED                                                                               NA
+ECON6I(4) Did not receive nor apply for any                                                 0.99933
+ECON6J(2) Applied for                                                                            NA
+ECON6J(3) Tried to apply for                                                                0.99746
+ECON6J(4) Did not receive nor apply for any                                                 0.99946
+ECON6K(2) Applied for                                                                       0.99901
+ECON6K(3) Tried to apply for                                                                0.99894
+ECON6K(4) Did not receive nor apply for any                                                 0.23866
+ECON6L(2) Applied for                                                                       0.99904
+ECON6L(3) Tried to apply for                                                                0.99805
+ECON6L(4) Did not receive nor apply for any                                                 0.61800
+PHYS9A(2) No                                                                                0.06145
+PHYS9B(2) No                                                                                0.06097
+PHYS9C(2) No                                                                                0.99733
+PHYS9D(2) No                                                                                0.01193
+PHYS9E(2) No                                                                                0.53994
+PHYS9F(2) No                                                                                0.48693
+PHYS9G(2) No                                                                                     NA
+PHYS9H(2) No                                                                                0.00622
+PHYS5(2) No                                                                                 0.99863
+PHYS5(77) Not sure                                                                          0.99998
+PHYS6(2) No                                                                                 0.46287
+PHYS6(77) Not sure                                                                          0.99789
+AGE7(2) 25-34                                                                               0.37630
+AGE7(3) 35-44                                                                               0.58889
+AGE7(4) 45-54                                                                               0.45755
+AGE7(5) 55-64                                                                               0.64225
+AGE7(6) 65-74                                                                               0.11167
+AGE7(7) 75+                                                                                 0.99013
+GENDER(2) Female                                                                            0.99444
+RACETH(2) Black, non-Hispanic                                                               0.08250
+RACETH(3) Hispanic                                                                          0.15620
+RACETH(4) Other, non-Hispanic                                                               0.05817
+HHINCOME$100,000 to under $150,000                                                          0.00578
+HHINCOME$150,000 or more                                                                    0.01494
+HHINCOME$20,000 to under $30,000                                                            0.89923
+HHINCOME$30,000 to under $40,000                                                            0.03171
+HHINCOME$40,000 to under $50,000                                                            0.84603
+HHINCOME$50,000 to under $75,000                                                            0.01919
+HHINCOME$75,000 to under $100,000                                                           0.02726
+HHINCOMEUnder $10,000                                                                       0.49911
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)             0.84381
+EDUCATION(3) Some college, no degree                                                        0.26844
+EDUCATION(4) Associate degree                                                               0.23320
+EDUCATION(5) Bachelors degree                                                               0.28029
+EDUCATION(6) Masters degree                                                                 0.09540
+EDUCATION(7) Professional or Doctorate degree                                               0.42323
+HHSIZE1                                                                                     0.31354
+HH01S                                                                                       0.40672
+HH25S                                                                                       0.32756
+HH612S                                                                                      0.21069
+HH1317S                                                                                     0.30272
+HH18OVS                                                                                     0.27052
+P_DENSE(3) Urban                                                                            0.29687
+                                                                                             
+(Intercept)                                                                                  
+SOC1(2) Most                                                                               * 
+SOC1(3) Some                                                                                 
+SOC1(4) None                                                                                 
+SOC2A(2) A few times a week                                                                  
+SOC2A(3) A few times a month                                                                 
+SOC2A(4) Once a month                                                                        
+SOC2A(5) Not at all                                                                          
+SOC2A(77) Not sure                                                                           
+SOC3A(2) A few times a week                                                                  
+SOC3A(3) A few times a month                                                                 
+SOC3A(4) Once a month                                                                        
+SOC3A(5) Not at all                                                                          
+SOC4A(2) No                                                                                  
+SOC4A(77) Not sure                                                                           
+PHYS8(2) Very good                                                                           
+PHYS8(3) Good                                                                                
+PHYS8(4) Fair                                                                                
+PHYS8(5) Poor                                                                                
+ECON1(2) Yes, I worked as self-employed in my own business, professional practice, or farm   
+ECON1(3) No, I did not work for pay last week.                                               
+ECON3                                                                                      . 
+ECON4A(2) Very likely                                                                        
+ECON4A(3) Moderately likely                                                                . 
+ECON4A(4) Not too likely                                                                   **
+ECON4A(5) Not likely at all                                                                  
+ECON4B(2) Very likely                                                                        
+ECON4B(3) Moderately likely                                                                  
+ECON4B(4) Not too likely                                                                   . 
+ECON4B(5) Not likely at all                                                                  
+ECON6A(2) Applied for                                                                        
+ECON6A(3) Tried to apply for                                                                 
+ECON6A(4) Did not receive nor apply for any                                                  
+ECON6A(99) REFUSED                                                                           
+ECON6B(2) Applied for                                                                        
+ECON6B(3) Tried to apply for                                                                 
+ECON6B(4) Did not receive nor apply for any                                                . 
+ECON6B(99) REFUSED                                                                           
+ECON6C(2) Applied for                                                                        
+ECON6C(3) Tried to apply for                                                                 
+ECON6C(4) Did not receive nor apply for any                                                  
+ECON6C(99) REFUSED                                                                           
+ECON6D(2) Applied for                                                                        
+ECON6D(3) Tried to apply for                                                                 
+ECON6D(4) Did not receive nor apply for any                                                  
+ECON6E(2) Applied for                                                                        
+ECON6E(3) Tried to apply for                                                                 
+ECON6E(4) Did not receive nor apply for any                                                * 
+ECON6E(99) REFUSED                                                                           
+ECON6F(2) Applied for                                                                        
+ECON6F(3) Tried to apply for                                                                 
+ECON6F(4) Did not receive nor apply for any                                                  
+ECON6G(2) Applied for                                                                        
+ECON6G(3) Tried to apply for                                                                 
+ECON6G(4) Did not receive nor apply for any                                                  
+ECON6G(99) REFUSED                                                                           
+ECON6H(2) Applied for                                                                        
+ECON6H(3) Tried to apply for                                                                 
+ECON6H(4) Did not receive nor apply for any                                                  
+ECON6H(99) REFUSED                                                                           
+ECON6I(4) Did not receive nor apply for any                                                  
+ECON6J(2) Applied for                                                                        
+ECON6J(3) Tried to apply for                                                                 
+ECON6J(4) Did not receive nor apply for any                                                  
+ECON6K(2) Applied for                                                                        
+ECON6K(3) Tried to apply for                                                                 
+ECON6K(4) Did not receive nor apply for any                                                  
+ECON6L(2) Applied for                                                                        
+ECON6L(3) Tried to apply for                                                                 
+ECON6L(4) Did not receive nor apply for any                                                  
+PHYS9A(2) No                                                                               . 
+PHYS9B(2) No                                                                               . 
+PHYS9C(2) No                                                                                 
+PHYS9D(2) No                                                                               * 
+PHYS9E(2) No                                                                                 
+PHYS9F(2) No                                                                                 
+PHYS9G(2) No                                                                                 
+PHYS9H(2) No                                                                               **
+PHYS5(2) No                                                                                  
+PHYS5(77) Not sure                                                                           
+PHYS6(2) No                                                                                  
+PHYS6(77) Not sure                                                                           
+AGE7(2) 25-34                                                                                
+AGE7(3) 35-44                                                                                
+AGE7(4) 45-54                                                                                
+AGE7(5) 55-64                                                                                
+AGE7(6) 65-74                                                                                
+AGE7(7) 75+                                                                                  
+GENDER(2) Female                                                                             
+RACETH(2) Black, non-Hispanic                                                              . 
+RACETH(3) Hispanic                                                                           
+RACETH(4) Other, non-Hispanic                                                              . 
+HHINCOME$100,000 to under $150,000                                                         **
+HHINCOME$150,000 or more                                                                   * 
+HHINCOME$20,000 to under $30,000                                                             
+HHINCOME$30,000 to under $40,000                                                           * 
+HHINCOME$40,000 to under $50,000                                                             
+HHINCOME$50,000 to under $75,000                                                           * 
+HHINCOME$75,000 to under $100,000                                                          * 
+HHINCOMEUnder $10,000                                                                        
+EDUCATION(2) HIGH SCHOOL GRADUATE - high school DIPLOMA or the equivalent (GED)              
+EDUCATION(3) Some college, no degree                                                         
+EDUCATION(4) Associate degree                                                                
+EDUCATION(5) Bachelors degree                                                                
+EDUCATION(6) Masters degree                                                                . 
+EDUCATION(7) Professional or Doctorate degree                                                
+HHSIZE1                                                                                      
+HH01S                                                                                        
+HH25S                                                                                        
+HH612S                                                                                       
+HH1317S                                                                                      
+HH18OVS                                                                                      
+P_DENSE(3) Urban                                                                             
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 425.18  on 430  degrees of freedom
+Residual deviance: 153.27  on 325  degrees of freedom
+AIC: 365.27
+
+Number of Fisher Scoring iterations: 19
+

@@ -1,0 +1,68 @@
+
+##### INITIAL HIGHEST ADJ-RSQ MODEL ##################
+> summary(final_mod.evanston)
+
+Call:
+lm(formula = food_insecurity_num_2020 ~ ., data = fa_pm_evanston %>% 
+    select(vars_list.subset))
+
+Residuals:
+       1        2        3        4        5        6        7        8 
+  0.8453  -9.7020  25.9527   8.3814 -22.4034  10.7062   4.2829   9.1808 
+       9       10       11       12       13       14       15       16 
+ -5.6700 -17.9284  -0.8304  -7.9435   0.3610  -6.0070  -2.0315 -11.4328 
+      17       18 
+  3.3852  20.8533 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)  
+(Intercept)                    -1.337e+03  9.023e+02  -1.482   0.2766  
+median_household_income         4.513e-03  9.922e-04   4.548   0.0451 *
+median_age                     -3.233e+01  4.683e+00  -6.902   0.0204 *
+social_vulnerability_index      8.922e+02  2.047e+02   4.359   0.0488 *
+median_home_loan_amount         1.757e-03  4.461e-04   3.938   0.0589 .
+median_home_value              -1.053e-03  2.667e-04  -3.947   0.0586 .
+prop_nonwhite                   6.985e+00  3.308e+00   2.111   0.1691  
+prop_nonenglish_speaking       -6.155e+00  5.413e+00  -1.137   0.3733  
+proportion_hispanic             9.859e+00  4.635e+00   2.127   0.1673  
+thiel_racial_segregation_index -1.530e+03  3.556e+02  -4.301   0.0500 .
+proportion_bachelors_degree     2.546e+01  7.922e+00   3.214   0.0847 .
+computer_access                -1.736e+01  5.081e+00  -3.416   0.0760 .
+prop_families_poverty          -3.309e+00  5.556e+00  -0.596   0.6119  
+num_jobs                       -3.615e-02  1.170e-02  -3.090   0.0907 .
+num_housing_units               8.493e-02  2.199e-02   3.863   0.0610 .
+life_expectancy                 3.863e+01  1.010e+01   3.824   0.0621 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 36 on 2 degrees of freedom
+Multiple R-squared:  0.9971,	Adjusted R-squared:  0.9751 
+F-statistic: 45.34 on 15 and 2 DF,  p-value: 0.02178
+
+################################# FINAL MODEL WITH SIGNIFICANT VARS ONLY ##################
+> summary(mod.evanston.subset4)
+
+Call:
+lm(formula = food_insecurity_num_2020 ~ median_household_income + 
+    median_age + social_vulnerability_index + median_home_value + 
+    thiel_racial_segregation_index + num_housing_units, data = fa_pm_evanston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-71.642 -34.380  -4.397  20.455 120.089 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     8.648e+02  1.193e+02   7.248 1.65e-05 ***
+median_household_income         2.283e-03  1.008e-03   2.266 0.044649 *  
+median_age                     -1.851e+01  3.727e+00  -4.967 0.000424 ***
+social_vulnerability_index      6.902e+02  1.154e+02   5.983 9.15e-05 ***
+median_home_value              -2.604e-04  1.370e-04  -1.901 0.083755 .  
+thiel_racial_segregation_index -5.782e+02  2.629e+02  -2.200 0.050098 .  
+num_housing_units               9.254e-02  2.413e-02   3.836 0.002767 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 58.69 on 11 degrees of freedom
+Multiple R-squared:  0.9572,	Adjusted R-squared:  0.9338 
+F-statistic: 40.96 on 6 and 11 DF,  p-value: 6.766e-07

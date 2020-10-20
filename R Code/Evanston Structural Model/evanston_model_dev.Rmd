@@ -1,0 +1,209 @@
+---
+title: "Evanston Food Insec Model Dev"
+author: "Adi Tyagi"
+date: "8/18/2020"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load libraries and obtain data
+We begin modelling with the Evanston only data.
+
+``` {r}
+library(tidyverse)
+library(ggplot2)
+library(car)
+
+
+##################MODEL WITH THE EVANSTON ONLY NOW############
+fa_pm_evanston = read_csv("../Data/Modelling Data/fa_pm_evanston-model.csv")
+```
+
+## Model Building
+We can do so by iterate through variables in list. They are in descending order of correlation with food_insecurity_num_2020. At each step, we add a variable from the list and compute the adjusted r-sq. In the end, we pick the variable subset with the highest adj r-sq. 
+
+
+``` {r}
+var_list = c( 'median_household_income',
+'median_age', 'social_vulnerability_index',
+'median_home_loan_amount', 'median_home_value', 'prop_nonwhite',
+'prop_nonenglish_speaking', 'proportion_hispanic',
+'thiel_racial_segregation_index', 'proportion_bachelors_degree',
+'computer_access', 'prop_families_poverty', 'num_jobs',
+'num_housing_units', 'life_expectancy', 'avg_travel_time_to_work',
+'prop_students_in_public_school', 'median_leverage_ratio',
+'proportion_disabled', 'avg_household_size', 'prop_men',
+'local_census_tract', 'unemployment_change')
+
+mod_set = c("food_insecurity_num_2018")
+results = data.frame(index = c(), adj_rsq = c())
+i = 0
+for (var in var_list) {
+  mod_set = append(mod_set, var)
+  i = i + 1
+  lin.mod = lm(log(food_insecurity_num_2018) ~ ., 
+               data = fa_pm_evanston %>% select(mod_set))
+  adj_rsq = summary(lin.mod)$adj.r.squared
+  results = rbind(results, list(i, adj_rsq))
+}
+names(results)[1] = "variable_index" 
+names(results)[2] = "adj-rsq"
+results
+```
+
+Let's graph the results
+```{r}
+#results %>% ggplot() + geom_point(aes(x = variable_index, y = adj_rsq))
+plot(results$variable_index, results$`adj-rsq`, type = 'o')
+```
+### Initial Subset
+
+The variable subset with the highest adj-rsq has been identified as:
+- median_household_income
+- median_age
+- social_vulnerabillity_index
+- median_home_loan_amount
+- median_home_value
+- prop_nonwhite
+- prop_nonenglish_speaking
+- proportion_hispanic
+- thiel_racial_segregation_index 
+- proportion_bachelors_degree
+- computer_access
+- prop_families_poverty 
+- num_jobs
+- num_housing_units
+- life_expectancy
+
+These are the first 15 variables, as identified by the peak in the graph above.
+
+```{r}
+vars_list.subset = c( 'median_household_income',
+                      'median_age', 'social_vulnerability_index',
+                      'median_home_loan_amount', 'median_home_value', 'prop_nonwhite',
+                      'prop_nonenglish_speaking', 'proportion_hispanic',
+                      'thiel_racial_segregation_index', 'proportion_bachelors_degree',
+                      'computer_access', 'prop_families_poverty', 'num_jobs',
+                      'num_housing_units', 'life_expectancy', 'food_insecurity_num_2018')
+mod.evanston.subset1 = lm(log(food_insecurity_num_2018) ~.,
+                        data = fa_pm_evanston %>% select(vars_list.subset))
+summary(mod.evanston.subset1)
+```
+
+
+### Subset 2
+We now retry the model with another subset, which is smaller and has only significant variables.
+```{r}
+mod.evanston.subset2 = lm(log(food_insecurity_num_2018) ~ 
+                          median_household_income + 
+                          median_age + 
+                          social_vulnerability_index +
+                          median_home_loan_amount + 
+                          proportion_hispanic + 
+                          thiel_racial_segregation_index + 
+                          proportion_bachelors_degree  + 
+                          num_jobs + 
+                          life_expectancy, 
+                        data = fa_pm_evanston)
+summary(mod.evanston.subset2)
+```
+
+### Subset 3
+We can remove more variables that were not significant, and rebuild a smaller more parsimonious model.
+```{r}
+mod.evanston.subset3 = lm(log(food_insecurity_num_2018) ~ 
+                            median_age + 
+                            social_vulnerability_index +
+                          proportion_hispanic + 
+                          thiel_racial_segregation_index + 
+                          proportion_bachelors_degree  + 
+                          num_jobs, 
+                          data = fa_pm_evanston)
+summary(mod.evanston.subset3)
+```
+
+
+### Subset 4
+We now remove prop_hispanic that was not significant (pvalue = 0.12, and rebuild a smaller more parsimonious model. This shall be our final model.
+
+
+```{r}
+mod.evanston.subset4 = lm(log(food_insecurity_num_2018) ~ 
+                            median_age + 
+                            social_vulnerability_index + 
+                          thiel_racial_segregation_index + 
+                          proportion_bachelors_degree  + 
+                          num_jobs,
+                          data = fa_pm_evanston)
+summary(mod.evanston.subset4)
+
+```
+
+## Subset 5
+We now remove proportion bachelor's degrees and num jobs since they were not significant in the previous model. 
+
+```{r}
+mod.evanston.subset4 = lm(log(food_insecurity_num_2018) ~ 
+                            median_age + 
+                            social_vulnerability_index + 
+                          thiel_racial_segregation_index,
+                          data = fa_pm_evanston)
+summary(mod.evanston.subset4)
+
+```
+
+## Multicollinearity check
+As a final check, let's see if there is multicollinearity present in our data by calculating the VIFs (Variance Inflation Factor). A VIF greater than 10 would indicate that we have multicollinearity present in our model.
+```{r}
+vif(mod.evanston.subset4)
+
+```
+The vif's are quite small (below the threshold of 10), indicating that we don't have multicollinearity in our model. Yay!
+
+## Key Takeaways from using log(2018_food_insecurity_num) as the dependent variable
+Three variables cumulatively account for ~90% of variation in the dependent variable. 
+
+- median age: negative effect
+- social vulnerability index: positive effect
+- thiel racial segregation index: negative effect
+
+### Compare and contrast with the 2020 model
+Overall, our 2018 model has a slightly worse fit (0.8739 adj rsq vs. 0.9338 adj rsq for the 2020 model). The 2018 model has fewer variables (3 vs 6 for the 2020 model) Finally, the 2018 model narrows the subset of variables used in the 2020 model. In particular, the 2018 model excludes: 
+
+- median household income
+- median home value
+- num housing units
+
+all of which were included in the 2020 model. 
+
+
+
+
+## Key Takeaways from using the 2020_food_insecurity_num as the dependent variable
+In the end, we have created a 6 variable model with a 0.9338 adj. r-squared. 
+A positive effect indicates that higher values of the variable are associated with higher values of food insecurity;
+A negative effect indicates that lower values of the variable are associated with higher varlues of food insecurity. 
+
+Overall, the takeaways are the following:
+
+- median_household_income: positive effect
+- median_age: negative effect
+- social_vulnerability_index: positive effect
+- median_home_value: negative effect
+- thiel_racial_segregation_index: negative effect
+- num_housing_units: positive effect
+
+## Feedback received on 8/14:
+
+- log the dependent variable - (AT)
+- How is racial segregation being measured? (Thiel Racial Seg) - MS
+- VIF seems good? - AW
+- Hypothesis Test between top_n and bottom_n- AW
+- Work with cooler variable selection methods (FFS, BFS, hclust,) - DC
+- Use 2018 food insecurity num as your dependent variable - AT
+

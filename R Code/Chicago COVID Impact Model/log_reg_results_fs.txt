@@ -1,0 +1,94 @@
+
+Call:
+glm(formula = food_insec ~ HHINCOME + AGE7 + RACETH + ECON4A + 
+    PHYS6 + ECON6K + PHYS9H + HH612S + SOC3A + ECON3 + PHYS9D, 
+    family = "binomial", data = cis %>% select(-SU_ID))
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9314  -0.4206  -0.1921   0.0000   2.5002  
+
+Coefficients:
+                                              Estimate Std. Error z value
+(Intercept)                                  3.326e-01  1.541e+00   0.216
+HHINCOME$100,000 to under $150,000          -2.341e+00  9.927e-01  -2.359
+HHINCOME$150,000 or more                    -2.125e+00  9.383e-01  -2.265
+HHINCOME$20,000 to under $30,000             4.874e-01  9.748e-01   0.500
+HHINCOME$30,000 to under $40,000            -9.838e-01  9.365e-01  -1.050
+HHINCOME$40,000 to under $50,000             1.334e+00  9.245e-01   1.443
+HHINCOME$50,000 to under $75,000            -1.222e+00  8.588e-01  -1.423
+HHINCOME$75,000 to under $100,000           -1.441e+00  8.849e-01  -1.629
+HHINCOMEUnder $10,000                        3.384e-01  1.070e+00   0.316
+AGE7(2) 25-34                                1.448e-02  7.614e-01   0.019
+AGE7(3) 35-44                               -8.110e-01  8.550e-01  -0.949
+AGE7(4) 45-54                               -3.459e-02  7.867e-01  -0.044
+AGE7(5) 55-64                               -2.643e-01  7.461e-01  -0.354
+AGE7(6) 65-74                               -1.502e+00  8.486e-01  -1.770
+AGE7(7) 75+                                 -3.025e+01  1.923e+03  -0.016
+RACETH(2) Black, non-Hispanic                2.080e+00  5.892e-01   3.530
+RACETH(3) Hispanic                           8.410e-01  5.477e-01   1.535
+RACETH(4) Other, non-Hispanic                1.589e+00  5.998e-01   2.650
+ECON4A(2) Very likely                        1.221e-01  6.147e-01   0.199
+ECON4A(3) Moderately likely                  1.852e+00  5.674e-01   3.264
+ECON4A(4) Not too likely                     2.197e+00  5.999e-01   3.662
+ECON4A(5) Not likely at all                  5.824e-01  6.070e-01   0.959
+PHYS6(2) No                                  5.104e-01  7.431e-01   0.687
+PHYS6(77) Not sure                           2.132e+01  4.540e+03   0.005
+ECON6K(2) Applied for                        1.894e+01  6.752e+03   0.003
+ECON6K(3) Tried to apply for                 1.572e+01  1.350e+03   0.012
+ECON6K(4) Did not receive nor apply for any -1.168e+00  8.681e-01  -1.345
+PHYS9H(2) No                                -1.138e+00  4.138e-01  -2.751
+HH612S                                       7.868e-01  3.268e-01   2.408
+SOC3A(2) A few times a week                 -5.477e-01  4.333e-01  -1.264
+SOC3A(3) A few times a month                -1.866e+01  2.217e+03  -0.008
+SOC3A(4) Once a month                        2.678e-01  1.893e+00   0.141
+SOC3A(5) Not at all                          1.390e+01  1.092e+04   0.001
+ECON3                                        2.465e-02  1.244e-02   1.982
+PHYS9D(2) No                                -1.117e+00  5.836e-01  -1.915
+                                            Pr(>|z|)    
+(Intercept)                                 0.829139    
+HHINCOME$100,000 to under $150,000          0.018343 *  
+HHINCOME$150,000 or more                    0.023532 *  
+HHINCOME$20,000 to under $30,000            0.617083    
+HHINCOME$30,000 to under $40,000            0.293504    
+HHINCOME$40,000 to under $50,000            0.149069    
+HHINCOME$50,000 to under $75,000            0.154752    
+HHINCOME$75,000 to under $100,000           0.103401    
+HHINCOMEUnder $10,000                       0.751829    
+AGE7(2) 25-34                               0.984825    
+AGE7(3) 35-44                               0.342823    
+AGE7(4) 45-54                               0.964929    
+AGE7(5) 55-64                               0.723126    
+AGE7(6) 65-74                               0.076649 .  
+AGE7(7) 75+                                 0.987448    
+RACETH(2) Black, non-Hispanic               0.000415 ***
+RACETH(3) Hispanic                          0.124662    
+RACETH(4) Other, non-Hispanic               0.008051 ** 
+ECON4A(2) Very likely                       0.842592    
+ECON4A(3) Moderately likely                 0.001097 ** 
+ECON4A(4) Not too likely                    0.000250 ***
+ECON4A(5) Not likely at all                 0.337309    
+PHYS6(2) No                                 0.492148    
+PHYS6(77) Not sure                          0.996253    
+ECON6K(2) Applied for                       0.997762    
+ECON6K(3) Tried to apply for                0.990711    
+ECON6K(4) Did not receive nor apply for any 0.178616    
+PHYS9H(2) No                                0.005948 ** 
+HH612S                                      0.016061 *  
+SOC3A(2) A few times a week                 0.206174    
+SOC3A(3) A few times a month                0.993286    
+SOC3A(4) Once a month                       0.887481    
+SOC3A(5) Not at all                         0.998985    
+ECON3                                       0.047435 *  
+PHYS9D(2) No                                0.055497 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 425.18  on 430  degrees of freedom
+Residual deviance: 223.50  on 396  degrees of freedom
+AIC: 293.5
+
+Number of Fisher Scoring iterations: 18
+

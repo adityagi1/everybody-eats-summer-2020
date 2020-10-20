@@ -1,0 +1,283 @@
+---
+title: "Evanston Hypothesis Testing"
+author: "Adi Tyagi"
+date: "8/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Loading data and libraries
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+#test hypotheses on evanston only data
+fa_pm_evanston = read_csv("../Data/Modelling Data/fa_pm_evanston-model.csv")
+fa_pm_evanston %>% head()
+```
+
+# Splitting the data
+The top 5 most food insecure tracts are separate from the bottom 5 least food insecure tracts. This allocation is made based on 2018_food_insecurity_num. 
+
+
+```{r}
+#top 5 tracts
+top_n = fa_pm_evanston %>% arrange(desc(food_insecurity_num_2018))%>% head(5) 
+print(paste("Most food insecure tracts:",  top_n$local_census_tract))
+```
+
+```{r}
+#bottom 5 tracts 
+bottom_n = fa_pm_evanston %>% arrange(desc(food_insecurity_num_2018)) %>% tail(5)
+
+print(paste("Least food insecure tracts: " ,bottom_n$local_census_tract))
+```
+
+# Distribution of number of food insecure persons in 2018
+There are some tracts with immense food insecurity (800 persons); while others have ~200 food insecure persons. 
+```{r, echo=FALSE}
+fa_pm_evanston %>% ggplot() + geom_histogram(aes(food_insecurity_num_2018), binwidth = 40)
+
+```
+
+# Exploring differences in explanatory variables
+## A simple analysis of difference
+
+```{r}
+var_list = c( 'median_household_income',
+'median_age', 'social_vulnerability_index',
+'median_home_loan_amount', 'median_home_value', 'prop_nonwhite',
+'prop_nonenglish_speaking', 'proportion_hispanic',
+'thiel_racial_segregation_index', 'proportion_bachelors_degree',
+'computer_access', 'prop_families_poverty', 'num_jobs',
+'num_housing_units', 'life_expectancy', 'avg_travel_time_to_work',
+'prop_students_in_public_school', 'median_leverage_ratio',
+'proportion_disabled', 'avg_household_size', 'prop_men')
+
+for (var in var_list) {
+  print(var)
+  top_n_mean = mean(top_n[[var]])
+  bottom_n_mean = mean(bottom_n[[var]])
+  diff = top_n_mean - bottom_n_mean
+  print(paste("top_n_mean:", top_n_mean))
+  print(paste("bottom_n_mean:", bottom_n_mean))
+  print(paste("diff:", top_n_mean - bottom_n_mean))
+  print("------")
+}
+```
+
+## Hypothesis testing
+
+Let's test hypotheses on the following list of variables: 
+
+
+- "median_household_income"        
+- "median_age"                    
+- "social_vulnerability_index"    
+- "median_home_loan_amount"       
+- "median_home_value"              
+- "prop_nonwhite"                 
+- "prop_nonenglish_speaking"       
+- "proportion_hispanic"           
+- "thiel_racial_segregation_index" 
+- "proportion_bachelors_degree"   
+- "computer_access"                
+- "prop_families_poverty"         
+- "num_jobs"                       
+- "num_housing_units"             
+- "life_expectancy"                
+- "avg_travel_time_to_work"       
+- "prop_students_in_public_school" 
+- "median_leverage_ratio"         
+- "proportion_disabled"            
+- "avg_household_size"
+- "prop_men"                    
+- "local_census_tract"          
+- "unemployment_change"
+
+
+For each variable we will do a two-sided first. Then, if appropriate, we wil do a one-sided test. We will use a significance level of 10%. In some cases, we will use a significance level of 15%.  
+
+### median household income
+Let's begin with median_household_income
+```{r}
+t.test(top_n$median_household_income,bottom_n$median_household_income,
+       alternative = "less")
+
+```
+Higher food insecurity tracts do indeed have a lower household income than do lower food insecurity tracts.
+
+### median age
+Let's now do median age. 
+```{r}
+t.test(top_n$median_age, bottom_n$median_age, alternative = "less")
+
+
+```
+Higher food insecurity tracts have a lower age. 
+
+### social vulnerability index
+
+```{r}
+t.test(top_n$social_vulnerability_index, bottom_n$social_vulnerability_index, alternative = 'greater')
+
+```
+
+Food insecure tracts are more socially vulnerable. 
+
+### median home loan amount
+```{r}
+t.test(top_n$median_home_loan_amount, bottom_n$median_home_loan_amount, alternative = 'less')
+
+```
+
+Food insecure tracts have a lower median home loan amount. 
+
+### median home value
+```{r}
+t.test(top_n$median_home_value, bottom_n$median_home_value, alternative = 'less')
+```
+
+Food insecure tracts have lower median home value.
+
+### prop nonwhite
+```{r}
+t.test(top_n$prop_nonwhite, bottom_n$prop_nonwhite, alternative = 'greater')
+```
+
+Food insecure tracts are more nonwhite in general.
+
+
+
+### prop nonenglish speaking
+```{r}
+t.test(top_n$prop_nonenglish_speaking, bottom_n$prop_nonenglish_speaking, alternative = 'greater')
+```
+
+Food insecure tracts have a greater non english speaking proportion.
+
+### median home value
+```{r}
+t.test(top_n$proportion_hispanic, bottom_n$proportion_hispanic, alternative = 'greater')
+```
+
+Food insecure tracts have a higher hispanic population.
+
+### thiel racial segregation
+```{r}
+t.test(top_n$thiel_racial_segregation_index, bottom_n$thiel_racial_segregation_index, alternative = 'less')
+```
+Food insecure tracts are less racial segregated. 
+
+### proportion bachelor's degree
+```{r}
+t.test(top_n$proportion_bachelors_degree, bottom_n$proportion_bachelors_degree, alternative = 'less')
+```
+
+Food insecure tracts have lower proportions with bachelor's degree.
+
+### computer access
+```{r}
+t.test(top_n$computer_access, bottom_n$computer_access, alternative = 'less')
+```
+Food insecure tracts have lower computer access.
+
+### prop families poverty
+```{r}
+t.test(top_n$prop_families_poverty, bottom_n$prop_families_poverty, alternative = 'greater')
+```
+
+Food secure tracts are similar to food insecure tracts when it comes to prop families in poverty.
+
+### num jobs
+```{r}
+t.test(top_n$num_jobs, bottom_n$num_jobs, alternative = 'greater')
+```
+We could say that food insecure tracts have more jobs located within them than food secure tracts.
+
+### num housing units
+```{r}
+t.test(top_n$num_housing_units, bottom_n$num_housing_units, alternative = 'greater')
+```
+Food insecure tracts are similar to food secure tracts when it comes to housing units.
+
+### life expectancy
+```{r}
+t.test(top_n$life_expectancy, bottom_n$life_expectancy, alternative = 'less')
+```
+Food insecure tracts are similar to food secure tracts when it comes to  life expectancy.
+
+
+### avg travel time to work
+```{r}
+t.test(top_n$avg_travel_time_to_work, bottom_n$avg_travel_time_to_work, alternative = 'less')
+```
+
+Food insecure tracts have lower avg travel times to work than food secure tracts.
+
+### prop students in public school
+```{r}
+t.test(top_n$prop_students_in_public_school, bottom_n$prop_students_in_public_school, alternative = 'two.sided')
+```
+Food insecure and food secure tracts are similar when it comes to prop students in public school.
+
+### median_leverage_ratio
+```{r}
+t.test(top_n$median_leverage_ratio, bottom_n$median_leverage_ratio, alternative = 'less')
+```
+Food secure vs. food insecure tracts are similar when it comes to leverage ratios. 
+
+
+### prop disabled
+```{r}
+t.test(top_n$proportion_disabled, bottom_n$proportion_disabled, alternative = 'two.sided')
+```
+The food insecure tracts and the food secure tracts are similar in terms of prop disabled. 
+
+### avg_household_size
+```{r}
+t.test(top_n$avg_household_size, bottom_n$avg_household_size, alternative = 'less')
+```
+Food insecure and food secure tracts are similar in terms of avg household size. 
+
+### prop_men
+```{r}
+t.test(top_n$prop_men, bottom_n$prop_men, alternative = 'less')
+```
+Both food insecure and food secure tracts are similar when it comes to the proportion of men. 
+
+# Takeaways
+
+The following are the takeaways from the hypothesis testing. We used a significance level of 10%; for a few hypotheses we used a significance level of 15%. 
+
+Compared to food secure tracts, food insecure tracts have/are:
+
+- a lower household income
+- a lower age. 
+- more socially vulnerable 
+- lower median home loan amount.
+- lower median home value.
+- more nonwhite in general.
+- greater non english speaking proportion.
+- higher hispanic population.
+- less racial segregated. 
+- lower proportions with bachelor's degree.
+- lower computer access.
+- lower avg travel times to work
+
+
+
+Food insecure tracts and food secure tracts are similar in terms of: 
+
+- prop families in poverty.
+- num jobs
+- num housing units
+- life expectancy
+- prop students in public school
+- median leverage ratios
+- prop disabled
+- avg household size
+- prop men

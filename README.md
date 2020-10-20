@@ -8,7 +8,7 @@ We addressed the problem by breaking the problem down in structural and COVID-19
 - Maura Shea (former VP Innovation at FeedingAmerica) - Team Lead
 - Aria Wang, Doris Cao, myself - Data Science Team
 - Vanessa Corbett, Mengxue Bi - Design Team
-- Amy Smilowitz - Academic Advisor
+- Prof. Amy Smilowitz - Academic Advisor
 
 ## Organization
 This repository is organized into:
